@@ -2,6 +2,8 @@ class Lenguaje():
     palabras = []
     contador = 0
     lista2 = []
+    sw = 0
+
     """docstring for Lenguaje"""
 
     def invertir(self, cadena):
@@ -11,14 +13,14 @@ class Lenguaje():
         cadena = "".join(aux)
 
         self.palabras = cadena.split(",")
-        print(self.palabras)
+
         aux = self.palabras
         for palabra in aux:
-            self.palabras[self.contador] = palabra[::-1]
+            self.palabras[self.contador] = palabra[::-1] + ","
             self.contador = self.contador + 1
-
-        for x in range(1, self.contador, 1):
-            self.palabras.insert(x, ",")
+            aux = self.palabras[self.contador - 1]
+        temp = len(aux)
+        self.palabras[self.contador - 1] = aux[:temp - 1]
 
         self.palabras.append("}")
         self.palabras.insert(0, "{")
@@ -28,7 +30,7 @@ class Lenguaje():
         print(cadena1)
 
 
-print("digite el lenguaje entre comillas \n")
+print("digite el lenguaje ENTRE COMILLAS \n")
 
 st = input()
 
